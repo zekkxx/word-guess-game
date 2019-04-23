@@ -1,0 +1,17 @@
+body{
+    color: white;
+    background-color: black;
+    text-align: center;
+}
+footer{
+    width: 100%;
+    text-align: center;
+}
+a{
+    color: white;
+    text-decoration-color: white;
+}
+a:hover{
+    color: cyan;
+    text-decoration-color: cyan;
+}
