@@ -23,7 +23,7 @@ class Game {
         this.guessedLetters="";
         this.constellationName=this.assignWord();
         this.playerHint=this.createPlayerHint();
-        console.log(this.constellationName + ":" + this.playerHint);
+        //console.log(this.constellationName + ":" + this.playerHint);
     }
 
     //This assigns a new word to the game for the player to guess, utilized only upon instantiation of a new game
