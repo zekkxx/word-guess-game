@@ -55,7 +55,7 @@ class Game {
 
     //This is the main function of the game, awaiting information from a key press and submitting information based on the response.
     verifyInput(input){
-        if(!/[a-z]/.test(input)){ //Test input against regular expression
+        if(!/[a-z]/.test(input) || input.length>1){ //Test input against regular expression
             document.getElementById("guessFeedbackSpan").innerHTML="This is not an approved letter. Try again.";
         } else if(this.guessedLetters.search(input) != -1) { //Test input against Already Guessed Letters
             document.getElementById("guessFeedbackSpan").innerHTML="This letter has already been guessed.";
