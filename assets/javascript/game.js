@@ -27,6 +27,7 @@ class Game {
     }
 
     assignNewGameVariables(){
+        this.verificationMessage="";
         this.guessesLeft=11;
         this.guessedLetters="";
         this.constellationName=this.assignWord();
@@ -58,16 +59,17 @@ class Game {
         document.getElementById("wordSpan").innerHTML=this.playerHint;
         document.getElementById("guessesLeftSpan").innerHTML="Chances Left: "+this.guessesLeft;
         document.getElementById("guessedLettersSpan").innerHTML="Guessed Letters: "+this.guessedLetters;
+        document.getElementById("guessFeedbackSpan").innerHTML=this.verificationMessage;
     }
 
     //This is the main function of the game, awaiting information from a key press and submitting information based on the response.
     verifyInput(input){
         if(!/[a-z]/.test(input) || input.length>1){ //Test input against regular expression
-            document.getElementById("guessFeedbackSpan").innerHTML="This is not an approved letter. Try again.";
+            this.verificationMessage="This is not an approved letter. Try again.";
         } else if(this.guessedLetters.search(input) != -1) { //Test input against Already Guessed Letters
-            document.getElementById("guessFeedbackSpan").innerHTML="This letter has already been guessed.";
+            this.verificationMessage="This letter has already been guessed.";
         } else {
-            document.getElementById("guessFeedbackSpan").innerHTML="";
+            this.verificationMessage="";
             this.guessedLetters += input + ", "
             this.compareInputWithWord(input);
             this.checkEndConditions();
@@ -100,7 +102,7 @@ class Game {
         } else if(this.playerHint.search("_") == -1){ //If There are no '_' characters in the output, WIN
             this.victoryCount+=1;
             this.victorySound.play();
-            setTimeout(function(){this.victorySound.stop()}, 4600);
+            setTimeout(() => {this.victorySound.stop()}, 4600);
             document.getElementById("themeRewardSpan").src="assets/images/"+this.constellationName+".jpg";
             this.newGame();
         }
