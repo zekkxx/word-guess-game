@@ -20,8 +20,8 @@ class Sound {
 
 class Game {
     constructor(){
-        this.victoryCount=0;
         this.victorySound = new Sound("assets/sounds/Commerce_start.mp3");
+        this.victoryCount=0;
         this.assignNewGameVariables();
         this.updateFields();
     }
@@ -68,8 +68,8 @@ class Game {
             document.getElementById("guessFeedbackSpan").innerHTML="This letter has already been guessed.";
         } else {
             document.getElementById("guessFeedbackSpan").innerHTML="";
-            this.compareInputWithWord(input);
             this.guessedLetters += input + ", "
+            this.compareInputWithWord(input);
             this.checkEndConditions();
         }
         this.updateFields();
@@ -100,6 +100,7 @@ class Game {
         } else if(this.playerHint.search("_") == -1){ //If There are no '_' characters in the output, WIN
             this.victoryCount+=1;
             this.victorySound.play();
+            setTimeout(function(){this.victorySound.stop()}, 4600);
             document.getElementById("themeRewardSpan").src="assets/images/"+this.constellationName+".jpg";
             this.newGame();
         }
