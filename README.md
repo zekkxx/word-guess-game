@@ -1,6 +1,6 @@
 # word-guess-game
 This project uses HTML, CSS and Javascript to create a word guessing game.
-Available at: https://zekkxx.github.io/word-guess-game/
+THIS PROJECT HAS BEEN DEPRECATED || Available at: https://zekkxx.github.io/word-guess-game/
 
 ## Explanation:
 This game is a word guessing game designed utilizing the Class structure. The intention behind this game was to utilize event listeners listening to the keyboard of a computer. As an additional goal, I wanted to include the capability to play the game from the browser even for devices without physical keyboards.
